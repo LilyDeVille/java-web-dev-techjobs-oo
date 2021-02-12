@@ -2,6 +2,7 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
+
 public class Employer {
     private int id;
     private static int nextId = 1;
@@ -12,10 +13,11 @@ public class Employer {
         nextId++;
     }
 
-    public Employer(String value) {
+    public Employer(String aValue) {
         this();
-        this.value = value;
+        this.value = aValue;
     }
+
 
     // Custom toString, equals, and hashCode methods:
 
