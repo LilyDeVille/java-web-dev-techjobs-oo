@@ -1,12 +1,17 @@
 package Tests;
 
+//import jdk.internal.event.SecurityPropertyModificationEvent;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
+
+import java.util.Locale;
 
 import static org.junit.Assert.*;
 
 
 public class JobTest {
+
+    //private static final SecurityPropertyModificationEvent ID = ;
 
     @Test
     public void testSettingJobId() {
@@ -45,6 +50,34 @@ public class JobTest {
 
         assertFalse(result);
 
+
+    }
+
+    @Test
+    public void testToString() {
+
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String result = job.toString();
+
+        assertTrue(result.startsWith("\n"));
+        assertTrue(result.endsWith("\n"));
+
+    }
+
+    @Test
+    public void labelTestToString() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String result = job.toString();
+
+        assertTrue(result.toLowerCase().equals("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n".toLowerCase()));
+    }
+
+    @Test
+    public void emptyFieldToTestToString() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String result = job.toString();
+
+        assertTrue(result.toLowerCase().equals("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Data not available\nPosition Type: Quality control\nCore Competency: Persistence\n".toLowerCase()));
 
     }
 

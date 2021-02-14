@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import javax.swing.text.Position;
 import java.util.Objects;
 
 public class Job {
@@ -95,4 +96,27 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+
+    @Override
+    public String toString() {
+        String formattedName = getFormattedString(this.name);
+        String formattedEmployer = getFormattedString(this.employer.toString());
+        String formattedLocation = getFormattedString(this.location.toString());
+        String formattedPositionType = getFormattedString(this.positionType.toString());
+        String formattedCoreCompetency = getFormattedString(this.coreCompetency.toString());
+
+
+
+
+        return "\nID: " + this.id + "\nName: " + formattedName + "\nEmployer: " + formattedEmployer + "\nLocation: " + formattedLocation + "\nPosition Type: " + formattedPositionType + "\nCore Competency: " + formattedCoreCompetency + "\n";
+    }
+
+    private String getFormattedString(String string) {
+        String formattedString = string;
+        if(string.equals("")) {
+            formattedString = "Data not available";
+        }
+        return formattedString;
+    }
 }
